@@ -1,17 +1,1 @@
-select codigo, descricao, cod_ncm, cod_cest, st,elo from estoque where codigo in
-(select codigo from itevendas where data_emissao between '01.01.2023' and '31.12.2023')
- and cod_cest is null and st = '500'  
 
-
-select codigo, descricao, cod_ncm, cod_cest, st,elo from estoque where codigo in
-(select codigo from itevendas where nota ='')
- and cod_cest is null and st = '500'  
-
-
---verifica a tabela de itens da venda (itevendas) o CFOP e CSOSN se estão certos
-das NFC-es que estão com status 386
-
-select nota,codigo,  cod_cfop, cfop, st from itevendas where nota in
-(select nota from vendas where nfe_status like '%386%')
-and st='102' and cfop='5.405'
---and st='500' and cfop ='5.102'
